@@ -22,6 +22,11 @@ func ReadLinesFromFile(filename string) ([]string, error) {
 		lines = append(lines, scanner.Text())
 	}
 
+	err = file.Close()
+	if err != nil {
+		return nil, err
+	}
+
 	if scanner.Err() != nil {
 		return nil, scanner.Err()
 	}
